@@ -1,8 +1,13 @@
 name: "Zeytin"
 title: "zeytin"
 description: |
-  zeytin
+  Buraya siteyle ilgili bilgi gelecek...
 output_dir: "docs"
+collections:
+  posts:
+    categories: true
+    categories_metadata: true
+    authors_metadata: false
 navbar:
   right:
     - text: "Home"
