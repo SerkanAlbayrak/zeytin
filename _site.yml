@@ -1,5 +1,6 @@
 name: "Zeytin"
 title: "zeytin"
+favicon: images/home/oliveTree5_2.png
 description: |
   Buraya siteyle ilgili bilgi gelecek...
 output_dir: "docs"
