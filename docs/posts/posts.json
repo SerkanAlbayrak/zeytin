@@ -1,8 +1,8 @@
 [
   {
     "path": "posts/welcome/",
-    "title": "Birinci yazı",
-    "description": "Yer tutma amaçlı",
+    "title": "Birinci yazi",
+    "description": "Yer tutma amaçli",
     "author": [
       {
         "name": "RSA",
@@ -13,7 +13,7 @@
     "categories": [],
     "contents": "\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2022-04-07T17:21:56+03:00",
-    "input_file": "welcome.knit.md"
+    "last_modified": "2022-04-07T17:21:57+03:00",
+    "input_file": {}
   }
 ]
