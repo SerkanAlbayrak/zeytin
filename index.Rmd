@@ -1,5 +1,7 @@
 ---
-title: ""
+title: "İncelemeler - Analizler - Raporlar"
 site: distill::distill_website
 listing: posts
 ---
+
+
