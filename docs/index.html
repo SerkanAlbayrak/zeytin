@@ -1602,6 +1602,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
           return "<p>" + $('#ref-' + ref).html() + "</p>";
@@ -1967,9 +1973,9 @@ function init_posts_list() {
 <img/>
 </div>
 <div class="description">
-<h2>Birinci yazi</h2>
+<h2>Birinci yazı</h2>
 <div class="dt-tags"></div>
-<p>Yer tutma amaçli</p>
+<p>Yer tutma amaçlı</p>
 </div>
 </a>
 </div>

@@ -8,6 +8,3 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-karakterler     
-
-ıişçğüöIİŞĞÜÖÇ

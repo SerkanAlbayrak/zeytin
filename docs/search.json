@@ -5,15 +5,15 @@
       "title": "About this blog",
       "description": "Some additional details about the blog",
       "author": [],
-      "contents": "\r\nkarakterler\r\nıişçğüöIİŞĞÜÖÇ\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-04-08T10:34:43+03:00"
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-04-08T14:48:25+03:00"
     },
     {
       "path": "index.html",
       "title": "İncelemeler - Analizler - Raporlar",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-04-08T10:34:44+03:00"
+      "last_modified": "2022-04-08T14:48:27+03:00"
     }
   ],
   "collections": ["posts/posts.json"]
