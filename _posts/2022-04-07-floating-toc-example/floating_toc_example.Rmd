@@ -15,7 +15,7 @@ categories:
   - CSS
   - JavaScript
   - HTML
-draft: true
+draft: false #Draft yapmak için anahtar
 output:
   distill::distill_article:
     toc: true

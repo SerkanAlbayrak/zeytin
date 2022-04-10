@@ -54,9 +54,12 @@ Son olarak sayfa ayağa kalktıktan sonra anasayfaya (yazıların listelendiği 
 
 Özellikle uzun dökümanlarda başlıklar arasında rahatça geçiş yapabilmek için ekranın sol ya da sağına sabitlenmiş bir başlıklar dizini çok kullanışlı olmakta. Blog yazılarının **yaml** kısmında bulunan `toc: TRUE` ve devamında `toc_float: TRUE` ile solda bir dizin oluşturulabiliyor ama istenen https://radovan-miletic.github.io/distill-blog/posts/2022-01-24-the-toc-in-distill/?panelset=yaml-output sayfasındaki gibi bir çözüm.
 
-Radovan Miletic'in distill'e uyarladığı çözümü şu şekilde kullandım: 
+Radovan Miletic'in distill'e uyarladığı çözümü şu şekilde kullandım: https://github.com/SerkanAlbayrak/zeytin/blob/main/_posts/2022-04-07-floating-toc-example/floating_toc_example.Rmd
+  
 
 Sadece toc-styles.css dosyasında (https://github.com/radovan-miletic/distill-blog/blob/main/_posts/2022-01-24-the-toc-in-distill/toc-styles.css) 27. satırda top: calc(5.5%) yerine top: calc(10.5%) kullanmayı daha uygun buldum çünkü üst menü ile çakışıyor.
+
+
 
 
 ### Blog Yazıları için `yaml` Özellikleri
