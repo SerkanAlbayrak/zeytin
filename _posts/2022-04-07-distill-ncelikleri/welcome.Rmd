@@ -1,8 +1,8 @@
 ---
-title: "Distill İncelikleri"
+title: "{distill} incelikleri"
 description: |
   (Bir süre DRAFT kalmasın) Bu siteyi R'ın Distill paketini kullanarak oluşturdum. Bu yazıda siteyi oluştururken ve sonrasında yaşadığım problemlere kendi getirdiğim ya da başka yerlerden bulduğum çözümleri derleyip koyuyorum. Muhtemelen bu sayfa sürekli olarak Draft etiketiyle var olacak.
-preview: dislog.png
+preview: dislog_portrait.png
 author:
   - name: RSA 
 date: 04-07-2022
@@ -12,7 +12,6 @@ output:
     toc: TRUE
     toc_float: TRUE
 ---
-
 
 <i class="fas fa-exclamation-triangle fa-2x" style="color:#990024"></i>
 
@@ -24,11 +23,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-
-## <i class="fas fa-exclamation-triangle fa-1x" style="color:#990024"></i> Blog Yazıları ile İlgili 
+## <i class="fas fa-exclamation-triangle fa-1x" style="color:#990024"></i> Blog Yazıları ile İlgili
 
 ### Türkçe Karakter Problemi
-Blog yazıları Distill'in ana sayfasında listelendirilmesi aşamasında UTF-8 problemi oluşuyor ve ana sayfaya yazıların başlıklarında bulunan TÜrkçe karakerler sorunlu geliyor. Temelde ı -> i problemi yaşadım. Diğerlerini etraflıca test etmedim. Sayfanın genelini render edip `commit` yapmadan önce ilk olarak R Environment'ı Türkçe karakterlere uygun hale getirmek gerekli.
+
+Blog yazıları Distill'in ana sayfasında listelendirilmesi aşamasında UTF-8 problemi oluşuyor ve ana sayfaya yazıların başlıklarında bulunan TÜrkçe karakerler sorunlu geliyor. Temelde ı -\> i problemi yaşadım. Diğerlerini etraflıca test etmedim. Sayfanın genelini render edip `commit` yapmadan önce ilk olarak R Environment'ı Türkçe karakterlere uygun hale getirmek gerekli.
 
 ```{r}
 #| eval: FALSE
@@ -52,17 +51,26 @@ Son olarak sayfa ayağa kalktıktan sonra anasayfaya (yazıların listelendiği 
 
 ### Floating TOC - Sabit Dizin
 
-Özellikle uzun dökümanlarda başlıklar arasında rahatça geçiş yapabilmek için ekranın sol ya da sağına sabitlenmiş bir başlıklar dizini çok kullanışlı olmakta. Blog yazılarının **yaml** kısmında bulunan `toc: TRUE` ve devamında `toc_float: TRUE` ile solda bir dizin oluşturulabiliyor ama istenen https://radovan-miletic.github.io/distill-blog/posts/2022-01-24-the-toc-in-distill/?panelset=yaml-output sayfasındaki gibi bir çözüm.
+Özellikle uzun dökümanlarda başlıklar arasında rahatça geçiş yapabilmek için ekranın sol ya da sağına sabitlenmiş bir başlıklar dizini çok kullanışlı olmakta. Blog yazılarının **yaml** kısmında bulunan `toc: TRUE` ve devamında `toc_float: TRUE` ile solda bir dizin oluşturulabiliyor ama istenen <https://radovan-miletic.github.io/distill-blog/posts/2022-01-24-the-toc-in-distill/?panelset=yaml-output> sayfasındaki gibi bir çözüm.
 
-Radovan Miletic'in distill'e uyarladığı çözümü şu şekilde kullandım: https://github.com/SerkanAlbayrak/zeytin/blob/main/_posts/2022-04-07-floating-toc-example/floating_toc_example.Rmd
-  
+Radovan Miletic'in distill'e uyarladığı çözümü şu şekilde kullandım: <https://github.com/SerkanAlbayrak/zeytin/blob/main/_posts/2022-04-07-floating-toc-example/floating_toc_example.Rmd>
 
-Sadece toc-styles.css dosyasında (https://github.com/radovan-miletic/distill-blog/blob/main/_posts/2022-01-24-the-toc-in-distill/toc-styles.css) 27. satırda top: calc(5.5%) yerine top: calc(10.5%) kullanmayı daha uygun buldum çünkü üst menü ile çakışıyor.
+Sadece toc-styles.css dosyasında (<https://github.com/radovan-miletic/distill-blog/blob/main/_posts/2022-01-24-the-toc-in-distill/toc-styles.css>) 27. satırda top: calc(5.5%) yerine top: calc(10.5%) kullanmayı daha uygun buldum çünkü üst menü ile çakışıyor.
+
+### Blog yazısı önizleme resmi boyutu (preview image size)
+
+Grafiklerde bu durumla karşılaşılmıyor sanırım ancak resim dosyalarının kullanılması durumunda dosya 'portrait' ise problem oluşuyor. Şu adreste bir çözüm önerisi var, çalıştığı söyleniyor ancak ben çalıştıramadım: <https://github.com/rstudio/distill/issues/92> . Alternatif çözüm önerim ise bu tip resimleri landscape formata dönüştürmek. Mesela powerpoint'te bir dikdörtgen üzerine kopyalamak. Örneğin,
+
+Aşağıdaki figure thumbnail class ile eklenen 1 x 1 boyutlarında bir resim.
+![](dislog.png){.thumbnail}
+
+Aynı resmin 2 x 1 boyutlarında thumbnail class etiketiyle eklenmiş hali.
+![](dislog_portrait.png){.thumbnail}
 
 
-
+Listing sayfasında ikinci satırda bulunan figür daha düzgün görünüyor.
 
 ### Blog Yazıları için `yaml` Özellikleri
 
-Bu kısmı ileride detaylandır:    
-https://rdrr.io/cran/distill/man/distill_article.html
+Bu kısmı ileride detaylandır:\
+<https://rdrr.io/cran/distill/man/distill_article.html>
