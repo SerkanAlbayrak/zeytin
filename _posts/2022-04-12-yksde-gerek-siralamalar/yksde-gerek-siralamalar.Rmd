@@ -1,0 +1,77 @@
+---
+title: "YKS'de Gerçek Sıralamalar"
+description: |
+  Milyonlarca öğrencinin kaderini belirlendiği YKS sınavlarında hemen yıl yeni kurallar geliyor ve sistemde major değişiklikler yapılıyor. Bu yazıda Yükseköğretim Kurumunun getirdiği kurallarda yaptığı işlem ve mantık hatalarını kendi yayınladıkları veriye dayanarak gösteriyorum.
+date: 04-12-2022
+author:
+  - first_name: "Raif Serkan"
+    last_name: "Albayrak"
+    url: https://github.com/SerkanAlbayrak
+    affiliation: İzmir Ekonomi University
+    affiliation_url: https://www.ieu.edu.tr
+    orcid_id: 0000-0002-8409-0140
+categories:
+  - YKS
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: TRUE
+    toc_depth: 6
+    toc_float: true
+    css: toc-styles.css
+---
+
+<!-- FRONTMATTER -->
+
+
+<!-- TOC JAVASCRIPT ELEMENTS -->
+<script>
+function toggle () {
+  document.getElementById("TOC").classList.toggle("hide");
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      if (entry.intersectionRatio > 0) {
+        document.querySelector(`[href="#${id}"]`).parentElement.classList.add('active');
+      } else {
+        document.querySelector(`[href="#${id}"]`).parentElement.classList.remove('active');
+      }
+    });
+  });
+
+  // Track all headings that have an `id` applied
+  document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').forEach((h1, h2, h3, h4, h5, h6) => {
+    observer.observe(h1, h2, h3, h4, h5, h6);
+  });
+  
+});
+</script>
+
+<!-- TOC HTML ELEMENTS -->
+<input type="button" class="d-article-with-toc" id="TOC" value="&#x2630" title="Toggle (Hide/Show) Table of Contents" alt="Toggle button for hiding/showing the Table of Contents" onclick="toggle()" style="padding:7px; border: 0px;"/>
+
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+Sys.setlocale("LC_CTYPE", "turkish")
+```
+
+# Mevcut Sistem
+
+Adı defalarca değişmiş (OSYM'nin sayfasından bulunup aside not olarak konabilir) olan üniversiteye giriş sınavları 2018 yılından itibaren arka arkaya iki gün yapılan tüm öğrencilerin girdiği Temel Yeterlilik Testi (TYT) ve 4 yıllık lisans programları okumayı hedefleyen öğrencilerin girdiği Alan Yeterlilik Testi şeklinde uygulanıyor. Ayrıca AYT’yi takiben dil puanıyla yerleştirme yapılan lisans programlarına yönelik Yabancı Dil Testi (YDT) yapılmakta.    
+
+Bu son dört yıllık dönemde kontenjanlar ve üniversite okuma hayaliyle sınava giren öğrenci sayıları kabaca sabit oldu.
+
+```{r}
+
+```
+
+
+
+
