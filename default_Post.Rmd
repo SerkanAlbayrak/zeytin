@@ -1,0 +1,77 @@
+---
+title: "NameThis"
+description: |
+  Short
+author:
+  - first_name: "Raif Serkan"
+    last_name: "Albayrak"
+    url: https://github.com/SerkanAlbayrak
+    affiliation: Izmir Ekonomi University
+    affiliation_url: https://www.ieu.edu.tr
+    orcid_id: 0000-0002-8409-0140
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 6
+    toc_float: true
+    css: toc-styles.css
+    self_contained: false
+---
+
+<!-- TOC JAVASCRIPT ELEMENTS -->
+<script>
+function toggle () {
+  document.getElementById("TOC").classList.toggle("hide");
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      if (entry.intersectionRatio > 0) {
+        document.querySelector(`[href="#${id}"]`).parentElement.classList.add('active');
+      } else {
+        document.querySelector(`[href="#${id}"]`).parentElement.classList.remove('active');
+      }
+    });
+  });
+
+  // Track all headings that have an `id` applied
+  document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').forEach((h1, h2, h3, h4, h5, h6) => {
+    observer.observe(h1, h2, h3, h4, h5, h6);
+  });
+  
+});
+</script>
+
+<!-- TOC HTML ELEMENTS -->
+<input type="button" class="d-article-with-toc" id="TOC" value="&#x2630" title="Toggle (Hide/Show) Table of Contents" alt="Toggle button for hiding/showing the Table of Contents" onclick="toggle()" style="padding:7px; border: 0px;"/>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Crumbs from a poor man's table (of contents)
+
+
+
+### Floating TOC in fixed position  
+
+
+### Toggle (show/hide) button   
+
+
+
+# Heading h1
+
+## Heading h2
+
+### Heading h3
+
+#### Heading h4
+
+##### Heading h5
+
+###### Heading h6

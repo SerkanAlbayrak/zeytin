@@ -3,15 +3,64 @@ title: "{distill} incelikleri"
 description: |
   (Bir süre DRAFT kalmasın) Bu siteyi R'ın Distill paketini kullanarak oluşturdum. Bu yazıda siteyi oluştururken ve sonrasında yaşadığım problemlere kendi getirdiğim ya da başka yerlerden bulduğum çözümleri derleyip koyuyorum. Muhtemelen bu sayfa sürekli olarak Draft etiketiyle var olacak.
 preview: dislog_portrait.png
-author:
-  - name: RSA 
 date: 04-07-2022
+author:
+  - first_name: "Raif Serkan"
+    last_name: "Albayrak"
+    url: https://github.com/SerkanAlbayrak
+    affiliation: İzmir Ekonomi University
+    affiliation_url: https://www.ieu.edu.tr
+    orcid_id: 0000-0002-8409-0140
+categories:
+  - R Markdown
+  - Distill
+  - CSS
+  - JavaScript
+  - HTML
 output:
   distill::distill_article:
     self_contained: false
     toc: TRUE
-    toc_float: TRUE
+    toc_depth: 6
+    toc_float: true
+    css: toc-styles.css
 ---
+<!-- FRONTMATTER -->
+
+<!-- TOC JAVASCRIPT ELEMENTS -->
+<script>
+function toggle () {
+  document.getElementById("TOC").classList.toggle("hide");
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      if (entry.intersectionRatio > 0) {
+        document.querySelector(`[href="#${id}"]`).parentElement.classList.add('active');
+      } else {
+        document.querySelector(`[href="#${id}"]`).parentElement.classList.remove('active');
+      }
+    });
+  });
+
+  // Track all headings that have an `id` applied
+  document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').forEach((h1, h2, h3, h4, h5, h6) => {
+    observer.observe(h1, h2, h3, h4, h5, h6);
+  });
+  
+});
+</script>
+
+<!-- TOC HTML ELEMENTS -->
+<input type="button" class="d-article-with-toc" id="TOC" value="&#x2630" title="Toggle (Hide/Show) Table of Contents" alt="Toggle button for hiding/showing the Table of Contents" onclick="toggle()" style="padding:7px; border: 0px;"/>
+
+
+
+
+
 
 <i class="fas fa-exclamation-triangle fa-2x" style="color:#990024"></i>
 
@@ -23,7 +72,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-## <i class="fas fa-exclamation-triangle fa-1x" style="color:#990024"></i> Blog Yazıları ile İlgili
+<i class="fas fa-exclamation-triangle fa-1x" style="color:#990024"></i> Blog Yazıları ile İlgili
 
 ### Türkçe Karakter Problemi
 
@@ -62,10 +111,12 @@ Sadece toc-styles.css dosyasında (<https://github.com/radovan-miletic/distill-b
 Grafiklerde bu durumla karşılaşılmıyor sanırım ancak resim dosyalarının kullanılması durumunda dosya 'portrait' ise problem oluşuyor. Şu adreste bir çözüm önerisi var, çalıştığı söyleniyor ancak ben çalıştıramadım: <https://github.com/rstudio/distill/issues/92> . Alternatif çözüm önerim ise bu tip resimleri landscape formata dönüştürmek. Mesela powerpoint'te bir dikdörtgen üzerine kopyalamak. Örneğin,
 
 Aşağıdaki figure thumbnail class ile eklenen 1 x 1 boyutlarında bir resim.
-![](dislog.png){.thumbnail}
+
+![](bigimage.PNG)
+
 
 Aynı resmin 2 x 1 boyutlarında thumbnail class etiketiyle eklenmiş hali.
-![](dislog_portrait.png){.thumbnail}
+![](normalimage.PNG)
 
 
 Listing sayfasında ikinci satırda bulunan figür daha düzgün görünüyor.
@@ -74,3 +125,100 @@ Listing sayfasında ikinci satırda bulunan figür daha düzgün görünüyor.
 
 Bu kısmı ileride detaylandır:\
 <https://rdrr.io/cran/distill/man/distill_article.html>
+
+# Github Ayarları
+
+Github kullanmanın faydalarından bahseden çok. RSTudio içinde Github ayarlarını yapabilmek için;
+
+```{r}
+# gitcreds::gitcreds_set()
+
+```
+
+Personal Access Token güncel değerim: ` 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`. Detaylar için https://happygitwithr.com/https-pat.html
+
+# Commit Sorunu
+Hemen hemen tüm templatelerde git commit konusunda problem yaşıyordum. RStudio kilitleniyor ve kapatmaktan başka çare kalmıyordu. Benzeri problemi    
+
+https://community.rstudio.com/t/blogdown-unable-to-stage-and-commit/6621/3
+
+adresinde gördüm. Önerilen çözüm Terminal penceresinde : `git add -A` komutu yazmak. Önerilerden bir diğeri de Sourcetree isimli Git arayüzünü kullanmak. Pek çok R kullanıcısı bunu tercih ediyormuş.
+
+# Blog Sayfasında İstediğim Özellikler
+Aşağıda listelenen özlliklere sahip olmayı istiyorum ve ona göre tercihte bulunacağım.
+
+## Tufte Tarzı Still
+
+### Quarto'da Çözüm
+Quarto kullanarak Tufte stili doküman oluşturma konusunda https://quarto-dev.github.io/quarto-gallery/page-layout/tufte.html adresine bakılabilir.    
+
+Quarto ile bir miktar uğraştıktan sonra Nisan 2022 tarihi itibariyle oldukça buggy olduğuna karar verdim ve bıraktım.
+
+### Distill İçinde Çözüm
+Distill içinde default Tufte desteği var gibi. Ancak bu destek sınırlı. https://rstudio.github.io/distill/#footnotes-and-asides   
+Umduğum Tufte zenginliği aslında Hugo_Prose'da mevcut ama onda da eksik başka şeyler var ve zaman içinde bu theme'de geliştirmeler beklemiyorum. Aksine Distill aktif olarak geliştiriliyor. https://prose.yihui.org/post/2020/11/10/r-markdown-demo/ 
+
+
+Bu sitede Distill ile ilgili Float an image left / right with wrapped text özelliği var. 
+
+https://www.jhelvy.com/posts/2021-03-25-customizing-distill-with-htmltools-and-css/
+
+Ayrıca distill.pub sitesi içine     
+
+>They are all floated to the right and anchored to the right-hand edge of the position you specify. By default, each will take up approximately half of the width of the standard layout position, but you can override the width with a more specific selector.
+
+metninin olduğu yere bak.
+
+
+### İki ya da daha fazla kolon
+
+İki veya daha fazla kolonda yazmak istenirse https://bookdown.org/yihui/rmarkdown-cookbook/multi-column.html
+Alternatif elegan bir çözüm: https://community.rstudio.com/t/using-bootstraps-grid-system-in-distill-article/104774
+
+### sağ sola dayalı grafik
+https://stackoverflow.com/questions/67630290/allow-plots-to-overhang-chunk-text-in-rmarkdown-html/67644121#67644121
+
+
+# Öneriler
+ Genel olarak aşağıdaki web sayfaları da ilginç içeriklere sahip:    
+
+* https://distillery.rbind.io/tips_and_tricks.html
+* https://emitanaka.org/index.html
+* Every time you build your website, everything gets recompiled. If you have simple content, and no/little R code, that’s ok. If you are having materials that take long to run (e.g. complex R code inside your website), I suggest to move the R code from the Rmd file to a separate R script and save results from the code into files (figures/tables/Rdata files). Then load those results into your Rmd file. This way you only need to run the time-consuming R code if those parts have changed, but on a standard website re-build the code won’t need to run. There is also a way to set up your distill website as a blog that doesn’t lead to everything being recompiled. See here for more. https://rstudio.github.io/distill/blog.html
+* Custom theme developing: https://rstudio.github.io/distill/website.html#theming
+* İçinde Distill ile ilgili pekçok faydalı çözümün olduğu https://jollydata.blog/
+* Bootstrap and distill https://blog.djnavarro.net/posts/2021-04-19_bs4cards-in-distill/
+* Mutlaka bak!!! https://www.ericekholm.com/posts/2021-04-02-personalizing-the-distill-template/, https://www.psyctc.org/Rblog/posts/2021-02-06-how-ive-done-this/
+
+## Örnek Sayfalar
+
+* https://distillery.rbind.io/showcase.html
+* https://www.ericekholm.com/posts/2021-04-02-personalizing-the-distill-template/
+* https://themockup.blog/posts/2021-08-27-displaying-verbatim-code-chunks-in-xaringan-presentations/
+* https://www.jhelvy.com/posts/2021-03-25-customizing-distill-with-htmltools-and-css/ 
+* https://blog.djnavarro.net/posts/2021-04-19_bs4cards-in-distill/
+* https://jollydata.blog/posts/2021-11-02-secret-santa/
+* https://www.etiennebacher.com/posts/2021-04-11-how-to-create-a-gallery-in-distill/
+* https://yuzar-blog.netlify.app/posts/2020-12-26-how-to-create-a-blog-or-a-website-in-r-with-distill-package/
+* https://www.psyctc.org/Rblog/posts/2021-02-06-how-ive-done-this/
+* https://werk.statt.codes/post/2021-02-24-hellodistill/
+* https://githubmemory.com/repo/laderast/distill_website
+
+
+# RENK Kodları ve Paletleri
+
+Bence muhteşem (vintage card): https://nanx.me/blog/post/rebranding-r-packages-with-hexagon-stickers/ ya da doğrudan https://color.adobe.com/Kopia-vintage-card-color-theme-11990015/
+
+# Sayfa içinde grafik ve resimlerin konumlanması
+
+Bu konunun bir numarası klasik Yihui. Mesela chunk opsiyonlarıyla ilgili şu dökümanla ilgili kendim bir post yazmalıyım. https://yihui.org/knitr/options/     
+
+Ayrıca şu döküman her ne kadar bir miktar eski tarihli olsa da oldukça güzel organize edilmiş. http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/
+
+Zevross sayfasında genel olarak faydalı materyaller var. Bir ara uğramak lazım.
+
+
+# Discussion
+
+https://jdvp.me/articles/Google-Forms-Jekyll-Comments
+
