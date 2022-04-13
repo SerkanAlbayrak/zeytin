@@ -10,7 +10,7 @@ author:
     url: https://github.com/SerkanAlbayrak
     affiliation: İzmir Ekonomi University
     affiliation_url: https://www.ieu.edu.tr
-    orcid_id: 0000-0002-8409-0140
+    orcid_id: 
 categories:
   - R Markdown
   - Distill
@@ -23,11 +23,15 @@ output:
     toc: TRUE
     toc_depth: 6
     toc_float: true
-    css: toc-styles.css
 ---
 <!-- FRONTMATTER -->
+![](../../images/home/tree.png)
+
+
 
 <!-- TOC JAVASCRIPT ELEMENTS -->
+
+```{=html}
 <script>
 function toggle () {
   document.getElementById("TOC").classList.toggle("hide");
@@ -53,13 +57,10 @@ window.addEventListener('DOMContentLoaded', () => {
   
 });
 </script>
-
+```
 <!-- TOC HTML ELEMENTS -->
+
 <input type="button" class="d-article-with-toc" id="TOC" value="&#x2630" title="Toggle (Hide/Show) Table of Contents" alt="Toggle button for hiding/showing the Table of Contents" onclick="toggle()" style="padding:7px; border: 0px;"/>
-
-
-
-
 
 
 <i class="fas fa-exclamation-triangle fa-2x" style="color:#990024"></i>
@@ -177,6 +178,24 @@ Alternatif elegan bir çözüm: https://community.rstudio.com/t/using-bootstraps
 
 ### sağ sola dayalı grafik
 https://stackoverflow.com/questions/67630290/allow-plots-to-overhang-chunk-text-in-rmarkdown-html/67644121#67644121
+
+## Fading Navbar
+
+Check https://github.com/rstudio-education/teaching-in-production/blob/9d5ca7176964515ccdde55d807152d22eaf2650b/styles.css and its application at https://rstudio-education.github.io/teaching-in-production/
+
+## Multiple css 
+
+For inserting multiple CSS files use the following code.
+
+title: "Untitled"
+date: "`r Sys.Date()`"
+output: distill::distill_article
+css: [style.css, hover.css] #the hover.css file will be containing the above modified code
+
+
+## Remove rubish chars from search
+
+https://distillery.rbind.io/posts/2021-02-24-thank-you-blogdown-hello-distill/ sayfasında anlatıyor.
 
 
 # Öneriler
