@@ -26,7 +26,7 @@ output:
 ---
 <!-- FRONTMATTER -->
 ![](../../images/home/tree.png)
-
+<link href="../../statics/toc-styles.css" rel="stylesheet"/>
 
 
 <!-- TOC JAVASCRIPT ELEMENTS -->
